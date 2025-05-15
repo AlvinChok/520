@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valentines Day</title>
+  <title>宝宝!! 520快乐呀❤️</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .gradient-background {
@@ -29,10 +29,13 @@
   </style>
 </head>
 <body class="gradient-background">
+  <audio hidden controls autoplay loop id="myAudio">
+    <source src="song.mp3" type="audio/mpeg" >
+</audio>
   <div class="flex items-center justify-center h-screen">
     <div class="flex flex-col items-center p-4">
-      <img id="imageDisplay" src="./images/image1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
-      <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4 text-center">Happy 520!!！😘😘</h2>
+      <img id="imageDisplay" src="./images/8.gif" alt="" class="rounded-md h-[300px]" style="object-fit: cover;" />
+      <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4 text-center">Babyyyyy~ Happy 520!!!😘😘</h2>
       <div class="flex gap-4 pt-[20px] items-center" id="responseButtons">
         <button id="yesButton"
           class="bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 min-h-12 min-w-[75px] px-4 py-2 bg-green-500 text-white transition">
@@ -40,7 +43,7 @@
         </button>
         <button id="noButton"
           class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium transition disabled:pointer-events-none disabled:opacity-50 hover:bg-red-700 h-12 min-w-[75px] w-auto px-4 py-2 bg-red-500 text-white">
-          Love Abit Abit Looo~
+          Love Abit Abit Looo~ 😛
         </button>
       </div>
     </div>
@@ -59,13 +62,13 @@
     let buttonWidth = 80;
     let fontSize = 20; // Starting font size in pixels
     const imagePaths = [
-      "./images/image1.gif",
-      "./images/image2.gif",
-      "./images/image3.gif",
-      "./images/image4.gif",
-      "./images/image5.gif",
-      "./images/image6.gif",
-      "./images/image7.gif"
+      "./images/1.gif",
+      "./images/3.gif",
+      "./images/2.gif",
+      "./images/7.gif",
+      "./images/5.gif",
+      "./images/4.gif"
+     
     ];
   
     noButton.addEventListener('click', function() {
@@ -78,17 +81,19 @@
         //yesButton.style.height = `${buttonHeight}px`; // Update button height
         //yesButton.style.width = `${buttonWidth}px`;
         //yesButton.style.fontSize = `${fontSize}px`; // Update font size
-        yesButton.textContent = ["I Lovee Youu", "I Loveeee Youuuu", "I Loveeeeee Youuuuuu", "I Loveeeeeeee Youuuuuuuu", "I Loveeeeeeee Youuuuuuuu!", "I Loveeeeeeee Youuuuuuuu!!😘😘"][noClickCount];
+        valentineQuestion.innerHTML = ["Babyyyyy~ Happy 520!!!","Got Miss Me Or Nottt","Really No Mehhhh","U know I Miss You Mahh","I Lovee Youuuu😘","I'm So Happy To Have You🥰"][noClickCount]; // Change the question text
+        yesButton.textContent = ["I Lovee Youu", "I Misss Youuu", "I Loveeeeee Youuuuuu", "I Loveeeeeeee Youuuuuuuu", "I Loveeeeeeee Youuuuuuuu!", "I Loveeeeeeee Youuuuuuuu!!😘😘"][noClickCount];
         
         if (noClickCount < 6) {
-          noButton.textContent = ["No", "ya mehh", "really abit nia harr", "but you so sayang me worrr", "I very miss you lehhh❤️", "🙂‍↔️🙂‍↔️"][noClickCount];
+          noButton.textContent = ["No", "Okayy Okayy Laa😛", "Miss Abit Looo~", "Know laaa Aiyooo🙂‍↔️", "Hanaa Loveee Youu Tooo❤️", "🙂‍↔️🙂‍↔️"][noClickCount];
         }
       }
     });
   
     yesButton.addEventListener('click', () => {
-      imageDisplay.src = './images/image7.gif'; // Change to image7.gif
-      valentineQuestion.innerHTML = "<br>Yayyyyyyyyy!!!!<br>I Loveeeeee Youuuu Babyyyy❤️ Thanks for everythinggggg😘😘😘<br><br>Happy 520!!!❤️"; // Change the question text
+      document.getElementById("myAudio").play();
+      imageDisplay.src = './images/10.jpg'; // Change to image7.gif
+      valentineQuestion.innerHTML = "<br>Yayyyyyyyyy!!!!<br>I Loveeeeee Youuuu Babyyyy❤️ Thanks for everythinggggg😘😘😘<br><br>❤️❤️❤️Happy 520!!!❤️❤️❤️"; // Change the question text
       responseButtons.style.display = 'none'; // Hide both buttons
       confetti(); // Trigger confetti animation
     });
