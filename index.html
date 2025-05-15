@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To: Zyy Babyyy😘</title>
+  <title>Valentines Day</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .gradient-background {
@@ -32,15 +32,15 @@
   <div class="flex items-center justify-center h-screen">
     <div class="flex flex-col items-center p-4">
       <img id="imageDisplay" src="./images/image1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
-      <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Happy 520 to my babyyyyyyyy!!!❤️❤️❤️</h2>
+      <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4 text-center">Will you be my Valentine?</h2>
       <div class="flex gap-4 pt-[20px] items-center" id="responseButtons">
         <button id="yesButton"
           class="bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 min-h-12 min-w-[75px] px-4 py-2 bg-green-500 text-white transition">
-          I Love You Very Muchhhhhh
+          I Lovee Youu
         </button>
         <button id="noButton"
           class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium transition disabled:pointer-events-none disabled:opacity-50 hover:bg-red-700 h-12 min-w-[75px] w-auto px-4 py-2 bg-red-500 text-white">
-          I Love You Abit Niaaa
+          Love Abit Abit Looo~
         </button>
       </div>
     </div>
@@ -75,18 +75,20 @@
         buttonHeight += 35; // Increase height by 5px on each click
         buttonWidth += 35;
         fontSize += 25; // Increase font size by 1px on each click
-        yesButton.style.height = `${buttonHeight}px`; // Update button height
-        yesButton.style.width = `${buttonWidth}px`;
-        yesButton.style.fontSize = `${fontSize}px`; // Update font size
+        //yesButton.style.height = `${buttonHeight}px`; // Update button height
+        //yesButton.style.width = `${buttonWidth}px`;
+        //yesButton.style.fontSize = `${fontSize}px`; // Update font size
+        yesButton.textContent = ["I Lovee Youu", "I Loveeee Youuuu", "I Loveeeeee Youuuuuu", "I Loveeeeeeee Youuuuuuuu", "I Loveeeeeeee Youuuuuuuu!", "I Loveeeeeeee Youuuuuuuu!!😘😘"][noClickCount];
+        
         if (noClickCount < 6) {
-          noButton.textContent = ["No", "Are you sure?", "Pookie please", "Don't do this to me :(", "You're breaking my heart", "I'm gonna cry..."][noClickCount];
+          noButton.textContent = ["No", "ya mehh", "really abit nia harr", "but you so sayang me worrr", "I very miss you lehhh❤️", "🙂‍↔️🙂‍↔️"][noClickCount];
         }
       }
     });
   
     yesButton.addEventListener('click', () => {
       imageDisplay.src = './images/image7.gif'; // Change to image7.gif
-      valentineQuestion.textContent = "Yayyy!! :3"; // Change the question text
+      valentineQuestion.innerHTML = "<br>Yayyyyyyyyy!!!!<br>I Loveeeeee Youuuu Babyyyy❤️ Thanks for everythinggggg😘😘😘<br><br>Happy 520!!!❤️"; // Change the question text
       responseButtons.style.display = 'none'; // Hide both buttons
       confetti(); // Trigger confetti animation
     });
