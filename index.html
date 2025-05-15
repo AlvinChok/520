@@ -26,23 +26,53 @@
         transform: translateY(-10px);
       }
     }
+
+    /* Ensure responsive font size for mobile */
+    .responsive-text {
+      font-size: 5vw;
+    }
+
+    .responsive-button {
+      font-size: 4vw;
+    }
+
+    /* Apply specific styles for different screen sizes */
+    @media (min-width: 640px) {
+      .responsive-text {
+        font-size: 2vw;
+      }
+
+      .responsive-button {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .responsive-text {
+        font-size: 1.5rem;
+      }
+
+      .responsive-button {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body class="gradient-background">
   <audio hidden controls autoplay loop id="myAudio">
-    <source src="song.mp3" type="audio/mpeg" >
-</audio>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
   <div class="flex items-center justify-center h-screen">
     <div class="flex flex-col items-center p-4">
       <img id="imageDisplay" src="./images/8.gif" alt="" class="rounded-md h-[300px]" style="object-fit: cover;" />
-      <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4 text-center">Babyyyyy~ Happy 520!!!😘😘</h2>
-      <div class="flex gap-4 pt-[20px] items-center" id="responseButtons">
+      <h2 id="valentineQuestion" class="responsive-text text-4xl font-bold italic text-[#bd1e59] my-4 text-center">Babyyyyy~ Happy 520!!!😘😘</h2>
+      <div class="flex gap-4 pt-4 items-center" id="responseButtons">
         <button id="yesButton"
-          class="bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 min-h-12 min-w-[75px] px-4 py-2 bg-green-500 text-white transition">
+          class="responsive-button bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 min-h-12 min-w-[75px] px-4 py-2 bg-green-500 text-white transition">
           I Lovee Youu
         </button>
         <button id="noButton"
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium transition disabled:pointer-events-none disabled:opacity-50 hover:bg-red-700 h-12 min-w-[75px] w-auto px-4 py-2 bg-red-500 text-white">
+          class="responsive-button inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium transition disabled:pointer-events-none disabled:opacity-50 hover:bg-red-700 h-12 min-w-[75px] w-auto px-4 py-2 bg-red-500 text-white">
           Love Abit Abit Looo~ 😛
         </button>
       </div>
@@ -56,11 +86,8 @@
     const imageDisplay = document.getElementById('imageDisplay');
     const valentineQuestion = document.getElementById('valentineQuestion');
     const responseButtons = document.getElementById('responseButtons');
-  
+
     let noClickCount = 0;
-    let buttonHeight = 48; // Starting height in pixels
-    let buttonWidth = 80;
-    let fontSize = 20; // Starting font size in pixels
     const imagePaths = [
       "./images/1.gif",
       "./images/3.gif",
@@ -68,28 +95,42 @@
       "./images/7.gif",
       "./images/5.gif",
       "./images/4.gif"
-     
     ];
-  
+
     noButton.addEventListener('click', function() {
       if (noClickCount < 5) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
-        buttonHeight += 35; // Increase height by 5px on each click
-        buttonWidth += 35;
-        fontSize += 25; // Increase font size by 1px on each click
-        //yesButton.style.height = `${buttonHeight}px`; // Update button height
-        //yesButton.style.width = `${buttonWidth}px`;
-        //yesButton.style.fontSize = `${fontSize}px`; // Update font size
-        valentineQuestion.innerHTML = ["Babyyyyy~ Happy 520!!!","Got Miss Me Or Nottt","Really No Mehhhh","U know I Miss You Mahh","I Lovee Youuuu😘","I'm So Happy To Have You🥰"][noClickCount]; // Change the question text
-        yesButton.textContent = ["I Lovee Youu", "I Misss Youuu", "I Loveeeeee Youuuuuu", "I Loveeeeeeee Youuuuuuuu", "I Loveeeeeeee Youuuuuuuu!", "I Loveeeeeeee Youuuuuuuu!!😘😘"][noClickCount];
-        
+        valentineQuestion.innerHTML = [
+          "Babyyyyy~ Happy 520!!!",
+          "Got Miss Me Or Nottt",
+          "Really No Mehhhh",
+          "U know I Miss You Mahh",
+          "I Lovee Youuuu😘",
+          "I'm So Happy To Have You🥰"
+        ][noClickCount]; // Change the question text
+        yesButton.textContent = [
+          "I Lovee Youu",
+          "I Misss Youuu",
+          "I Loveeeeee Youuuuuu",
+          "I Loveeeeeeee Youuuuuuuu",
+          "I Loveeeeeeee Youuuuuuuu!",
+          "I Loveeeeeeee Youuuuuuuu!!😘😘"
+        ][noClickCount];
+
         if (noClickCount < 6) {
-          noButton.textContent = ["No", "Okayy Okayy Laa😛", "Miss Abit Looo~", "Know laaa Aiyooo🙂‍↔️", "Hanaa Loveee Youu Tooo❤️", "🙂‍↔️🙂‍↔️"][noClickCount];
+          noButton.textContent = [
+            "No",
+            "Okayy Okayy Laa😛",
+            "Miss Abit Looo~",
+            "Know laaa Aiyooo🙂‍↔️",
+            "Hanaa Loveee Youu Tooo❤️",
+            "🙂‍↔️🙂‍↔️"
+          ][noClickCount];
         }
       }
     });
-  
+
     yesButton.addEventListener('click', () => {
       document.getElementById("myAudio").play();
       imageDisplay.src = './images/10.jpg'; // Change to image7.gif
@@ -97,6 +138,6 @@
       responseButtons.style.display = 'none'; // Hide both buttons
       confetti(); // Trigger confetti animation
     });
-  </script>  
+  </script>
 </body>
 </html>
