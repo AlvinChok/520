@@ -29,31 +29,26 @@
 
     /* Ensure responsive font size for mobile */
     .responsive-text {
-      font-size: 5vw;
+      font-size: 6vw;
     }
 
     .responsive-button {
       font-size: 4vw;
+      max-width: 80vw; /* Restricts button width to 80% of viewport */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     /* Apply specific styles for different screen sizes */
     @media (min-width: 640px) {
       .responsive-text {
-        font-size: 2vw;
+        font-size: 3vw;
       }
 
       .responsive-button {
         font-size: 1.2rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .responsive-text {
-        font-size: 1.5rem;
-      }
-
-      .responsive-button {
-        font-size: 1rem;
+        max-width: 30vw; /* Adjust max-width appropriately for larger screens */
       }
     }
   </style>
